@@ -1,0 +1,19 @@
+﻿<Application x:Class="WpfApp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:WpfApp"
+             xmlns:views="clr-namespace:WpfApp.Views"
+             xmlns:viewmodels="clr-namespace:WpfApp.ViewModels"
+             StartupUri="Views/LoginWindow.xaml">
+    <Application.Resources>
+
+        <DataTemplate DataType="{x:Type viewmodels:CustomerViewModel}">
+            <views:CustomerManagementView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type viewmodels:ProductViewModel}">
+            <views:ProductManagementView/>
+        </DataTemplate>
+
+    </Application.Resources>
+</Application>
