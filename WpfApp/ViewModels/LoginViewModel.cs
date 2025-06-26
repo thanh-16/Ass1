@@ -1,71 +1,73 @@
-﻿using Service;
-using System;
-using System.Windows.Controls;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using WpfApp.Views;
+using DataAccessLayer;
+using BusinessObjects;
+using System.Windows;
 
 namespace WpfApp.ViewModels
 {
-    public class LoginViewModel : ViewModelBase
+    public class LoginViewModel : INotifyPropertyChanged
     {
-        private string _username;
-        public string Username
+        private string _username = string.Empty;
+        private string _password = string.Empty;
+        public string Username { get => _username; set { _username = value; OnPropertyChanged(); } }
+        public string Password { get => _password; set { _password = value; OnPropertyChanged(); } }
+
+        public ICommand LoginCommand { get; set; }
+
+        private readonly IEmployeeRepository _repo;
+        private readonly Window _window;
+
+        public LoginViewModel(IEmployeeRepository repo, Window window)
         {
-            get => _username;
-            set { _username = value; OnPropertyChanged(); }
+            _repo = repo;
+            _window = window;
+            LoginCommand = new RelayCommand(Login);
         }
 
-        private string _errorMessage;
-        public string ErrorMessage
+        private void Login(object obj)
         {
-            get => _errorMessage;
-            set { _errorMessage = value; OnPropertyChanged(); }
-        }
-
-        private readonly EmployeeService _employeeService = new EmployeeService();
-        private readonly CustomerService _customerService = new CustomerService();
-        public ICommand LoginCommand { get; }
-        public event Action RequestClose;
-
-        public LoginViewModel()
-        {
-            LoginCommand = new RelayCommand(Login, CanLogin);
-        }
-
-        private bool CanLogin(object parameter)
-        {
-            // Cho phép nhấn nút Login khi có nhập Username/Phone
-            return !string.IsNullOrEmpty(Username);
-        }
-
-        private void Login(object parameter)
-        {
-            var passwordBox = parameter as PasswordBox;
-            if (passwordBox == null) return;
-            var password = passwordBox.Password;
-
-            // Kiểm tra đăng nhập với tư cách Admin (Employee)
-            var employee = _employeeService.Authenticate(Username, password);
-            if (employee != null)
+            string password = obj as string ?? Password;
+            var emp = _repo.GetAll().FirstOrDefault(e => e.UserName == Username && e.Password == password);
+            if (emp != null)
             {
-                var mainWindow = new MainWindow();
-                mainWindow.Show();
-                RequestClose?.Invoke(); // Gửi yêu cầu đóng cửa sổ Login
-                return;
+                // ��ng nh?p th�nh c�ng, m? MainWindow
+                var main = new MainWindow();
+                main.Show();
+                _window.Close();
             }
-
-            // Kiểm tra đăng nhập với tư cách Customer (bằng SĐT)
-            var customer = _customerService.GetCustomerByPhone(Username);
-            // Giả định: mật khẩu của khách hàng chính là SĐT của họ
-            if (customer != null && password == customer.Phone)
+            else
             {
-                // TODO: Mở cửa sổ dành cho Customer
-                ErrorMessage = $"Welcome Customer: {customer.ContactName}";
-                // RequestClose?.Invoke(); // Khi có cửa sổ Customer thì mở dòng này
-                return;
+                MessageBox.Show("Sai t�i kho?n ho?c m?t kh?u!");
             }
+        }
 
-            ErrorMessage = "Invalid username or password.";
+        public event PropertyChangedEventHandler? PropertyChanged;
+        protected void OnPropertyChanged([CallerMemberName] string? name = null)
+            => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
+    }
+
+    // RelayCommand implementation for ICommand
+    public class RelayCommand : ICommand
+    {
+        private readonly Action<object?> _execute;
+        private readonly Predicate<object?>? _canExecute;
+
+        public RelayCommand(Action<object?> execute, Predicate<object?>? canExecute = null)
+        {
+            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
+            _canExecute = canExecute;
+        }
+
+        public bool CanExecute(object? parameter) => _canExecute == null || _canExecute(parameter);
+
+        public void Execute(object? parameter) => _execute(parameter);
+
+        public event EventHandler? CanExecuteChanged
+        {
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
     }
 }

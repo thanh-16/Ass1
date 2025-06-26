@@ -5,7 +5,11 @@ namespace DataAccessLayer
 {
     public interface ICustomerRepository
     {
-        List<Customer> GetCustomers();
-        Customer GetCustomerByPhone(string phone);
+        IEnumerable<Customer> GetAll();
+        Customer? GetById(int id);
+        void Add(Customer customer);
+        void Update(Customer customer);
+        void Delete(int id);
+        IEnumerable<Customer> Search(string keyword);
     }
 }
