@@ -20,7 +20,6 @@ namespace WpfApp
             var orderRepo = new OrderRepository();
             Orders = new ObservableCollection<Order>(orderRepo.GetAll().Where(o => o.CustomerID == customer.CustomerID));
 
-            // Binding đúng cách
             DataContext = this;
         }
 
@@ -29,7 +28,7 @@ namespace WpfApp
             var popup = new AddEditCustomerWindow(Customer);
             if (popup.ShowDialog() == true)
             {
-                // Cập nhật thông tin cá nhân
+
                 var customerRepo = new CustomerRepository();
                 customerRepo.Update(popup.Customer);
 
@@ -39,7 +38,6 @@ namespace WpfApp
                 Customer.Address = popup.Customer.Address;
                 Customer.Phone = popup.Customer.Phone;
 
-                // Refresh UI
                 DataContext = null;
                 DataContext = this;
 

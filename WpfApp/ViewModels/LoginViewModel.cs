@@ -49,8 +49,8 @@ namespace WpfApp.ViewModels
                 var emp = _repo.GetAll().FirstOrDefault(e => e.UserName == Username && e.Password == Password);
                 if (emp != null)
                 {
-                    var main = new MainWindow();
-                    main.Show();
+                    var adminWindow = new AdminWindow();
+                    adminWindow.Show();
                     _window.Close();
                 }
                 else

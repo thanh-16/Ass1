@@ -31,7 +31,7 @@ namespace BusinessObjects
                 new Customer
                 {
                     CustomerID = 2,
-                    CompanyName = "Công ty XYZ",
+                    CompanyName = "Công ty X",
                     ContactName = "Trần Thị B",
                     ContactTitle = "Trưởng phòng",
                     Address = "456 Đường B, Quận 3, TP.HCM",
@@ -40,7 +40,7 @@ namespace BusinessObjects
                 new Customer
                 {
                     CustomerID = 3,
-                    CompanyName = "Công ty DEF",
+                    CompanyName = "Công ty D",
                     ContactName = "Lê Văn C",
                     ContactTitle = "Giám đốc",
                     Address = "789 Đường C, Quận 5, TP.HCM",
@@ -55,25 +55,25 @@ namespace BusinessObjects
                     EmployeeID = 1,
                     Name = "Admin",
                     UserName = "admin",
-                    Password = "admin123",
+                    Password = "admin",
                     JobTitle = "Administrator",
                     Phone = "0123456789"
                 },
                 new Employee
                 {
                     EmployeeID = 2,
-                    Name = "Nguyễn Văn Nhân viên",
+                    Name = "Nhân viên",
                     UserName = "nhanvien",
-                    Password = "123456",
+                    Password = "12345",
                     JobTitle = "Nhân viên",
                     Phone = "0987654321"
                 },
                 new Employee
                 {
                     EmployeeID = 3,
-                    Name = "Lê Thị Quản lý",
+                    Name = "Quản lý",
                     UserName = "quanly",
-                    Password = "123456",
+                    Password = "123",
                     JobTitle = "Quản lý",
                     Phone = "0912345678"
                 }

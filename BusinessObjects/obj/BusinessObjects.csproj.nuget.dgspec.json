@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Semester_5\\prn212\\ThayKhanh\\AssignMent1\\BusinessObjects\\BusinessObjects.csproj": {}
+    "D:\\Semester_5\\prn212\\ThayKhanh\\AssignMent1\\Ass1\\BusinessObjects\\BusinessObjects.csproj": {}
   },
   "projects": {
-    "D:\\Semester_5\\prn212\\ThayKhanh\\AssignMent1\\BusinessObjects\\BusinessObjects.csproj": {
+    "D:\\Semester_5\\prn212\\ThayKhanh\\AssignMent1\\Ass1\\BusinessObjects\\BusinessObjects.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Semester_5\\prn212\\ThayKhanh\\AssignMent1\\BusinessObjects\\BusinessObjects.csproj",
+        "projectUniqueName": "D:\\Semester_5\\prn212\\ThayKhanh\\AssignMent1\\Ass1\\BusinessObjects\\BusinessObjects.csproj",
         "projectName": "BusinessObjects",
-        "projectPath": "D:\\Semester_5\\prn212\\ThayKhanh\\AssignMent1\\BusinessObjects\\BusinessObjects.csproj",
+        "projectPath": "D:\\Semester_5\\prn212\\ThayKhanh\\AssignMent1\\Ass1\\BusinessObjects\\BusinessObjects.csproj",
         "packagesPath": "C:\\Users\\nqtha\\.nuget\\packages\\",
-        "outputPath": "D:\\Semester_5\\prn212\\ThayKhanh\\AssignMent1\\BusinessObjects\\obj\\",
+        "outputPath": "D:\\Semester_5\\prn212\\ThayKhanh\\AssignMent1\\Ass1\\BusinessObjects\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

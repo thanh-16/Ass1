@@ -10,3 +10,15 @@ D:\Semester_5\prn212\ThayKhanh\AssignMent1\BusinessObjects\obj\Debug\net8.0\Busi
 D:\Semester_5\prn212\ThayKhanh\AssignMent1\BusinessObjects\obj\Debug\net8.0\refint\BusinessObjects.dll
 D:\Semester_5\prn212\ThayKhanh\AssignMent1\BusinessObjects\obj\Debug\net8.0\BusinessObjects.pdb
 D:\Semester_5\prn212\ThayKhanh\AssignMent1\BusinessObjects\obj\Debug\net8.0\ref\BusinessObjects.dll
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\Ass1\BusinessObjects\bin\Debug\net8.0\BusinessObjects.deps.json
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\Ass1\BusinessObjects\bin\Debug\net8.0\BusinessObjects.dll
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\Ass1\BusinessObjects\bin\Debug\net8.0\BusinessObjects.pdb
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\Ass1\BusinessObjects\obj\Debug\net8.0\BusinessObjects.GeneratedMSBuildEditorConfig.editorconfig
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\Ass1\BusinessObjects\obj\Debug\net8.0\BusinessObjects.AssemblyInfoInputs.cache
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\Ass1\BusinessObjects\obj\Debug\net8.0\BusinessObjects.AssemblyInfo.cs
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\Ass1\BusinessObjects\obj\Debug\net8.0\BusinessObjects.csproj.CoreCompileInputs.cache
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\Ass1\BusinessObjects\obj\Debug\net8.0\BusinessObjects.sourcelink.json
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\Ass1\BusinessObjects\obj\Debug\net8.0\BusinessObjects.dll
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\Ass1\BusinessObjects\obj\Debug\net8.0\refint\BusinessObjects.dll
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\Ass1\BusinessObjects\obj\Debug\net8.0\BusinessObjects.pdb
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\Ass1\BusinessObjects\obj\Debug\net8.0\ref\BusinessObjects.dll
