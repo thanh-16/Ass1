@@ -1,4 +1,4 @@
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
 using DataAccessLayer;
@@ -17,29 +17,46 @@ namespace WpfApp.ViewModels
         public ICommand LoginCommand { get; set; }
 
         private readonly IEmployeeRepository _repo;
+        private readonly ICustomerRepository _customerRepo;
         private readonly Window _window;
 
-        public LoginViewModel(IEmployeeRepository repo, Window window)
+        public LoginViewModel(IEmployeeRepository empRepo, ICustomerRepository custRepo, Window window)
         {
-            _repo = repo;
+            _repo = empRepo;
+            _customerRepo = custRepo;
             _window = window;
             LoginCommand = new RelayCommand(Login);
         }
 
-        private void Login(object obj)
+        public void Login(object? obj = null)
         {
-            string password = obj as string ?? Password;
-            var emp = _repo.GetAll().FirstOrDefault(e => e.UserName == Username && e.Password == password);
-            if (emp != null)
+            if (Username.All(char.IsDigit) && Username.Length >= 8 && Username.Length <= 15)
             {
-                // ��ng nh?p th�nh c�ng, m? MainWindow
-                var main = new MainWindow();
-                main.Show();
-                _window.Close();
+                var cust = _customerRepo.GetAll().FirstOrDefault(c => c.Phone == Username);
+                if (cust != null)
+                {
+                    var customerWindow = new CustomerWindow(cust);
+                    customerWindow.Show();
+                    _window.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Số điện thoại không đúng!");
+                }
             }
-            else
+            else 
             {
-                MessageBox.Show("Sai t�i kho?n ho?c m?t kh?u!");
+                var emp = _repo.GetAll().FirstOrDefault(e => e.UserName == Username && e.Password == Password);
+                if (emp != null)
+                {
+                    var main = new MainWindow();
+                    main.Show();
+                    _window.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Sai tài khoản hoặc mật khẩu!");
+                }
             }
         }
 
@@ -48,8 +65,7 @@ namespace WpfApp.ViewModels
             => PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
     }
 
-    // RelayCommand implementation for ICommand
-    public class RelayCommand : ICommand
+    public class RelayCommand : ICommand        
     {
         private readonly Action<object?> _execute;
         private readonly Predicate<object?>? _canExecute;

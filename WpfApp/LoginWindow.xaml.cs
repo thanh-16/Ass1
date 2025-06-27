@@ -24,9 +24,18 @@ namespace WpfApp
         public LoginWindow()
         {
             InitializeComponent();
-            // Khởi tạo repository và ViewModel, gán DataContext cho LoginWindow
-            var repo = new EmployeeRepository();
-            DataContext = new LoginViewModel(repo, this);
+            var empRepo = new EmployeeRepository();
+            var custRepo = new CustomerRepository();
+            DataContext = new LoginViewModel(empRepo, custRepo, this);
+        }
+
+        private void LoginButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (DataContext is WpfApp.ViewModels.LoginViewModel vm)
+            {
+                vm.Password = PasswordBox.Password;
+                vm.LoginCommand.Execute(null);
+            }
         }
     }
 }

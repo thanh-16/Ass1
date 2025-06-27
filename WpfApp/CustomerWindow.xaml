@@ -1,0 +1,57 @@
+﻿<Window x:Class="WpfApp.CustomerWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Thông tin khách hàng" Height="500" Width="800">
+    <StackPanel Margin="20">
+        <TextBlock Text="Thông tin cá nhân" FontWeight="Bold" FontSize="16" Margin="0,0,0,10"/>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Text="Tên công ty: " FontWeight="Bold" Width="120"/>
+            <TextBlock Text="{Binding Customer.CompanyName}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Text="Tên liên hệ: " FontWeight="Bold" Width="120"/>
+            <TextBlock Text="{Binding Customer.ContactName}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Text="Chức vụ: " FontWeight="Bold" Width="120"/>
+            <TextBlock Text="{Binding Customer.ContactTitle}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+            <TextBlock Text="Địa chỉ: " FontWeight="Bold" Width="120"/>
+            <TextBlock Text="{Binding Customer.Address}"/>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+            <TextBlock Text="Số điện thoại: " FontWeight="Bold" Width="120"/>
+            <TextBlock Text="{Binding Customer.Phone}"/>
+        </StackPanel>
+        <Button Content="Chỉnh sửa thông tin" Width="150" Margin="0,0,0,20" Click="EditProfile_Click"/>
+
+        <TextBlock Text="Lịch sử đơn hàng" FontWeight="Bold" FontSize="16" Margin="0,10,0,10"/>
+        <DataGrid x:Name="OrderGrid"
+                  ItemsSource="{Binding Orders}"
+                  AutoGenerateColumns="False"
+                  Height="200"
+                  Width="472"
+                  SelectionMode="Single"
+                  CanUserAddRows="False"
+                  CanUserDeleteRows="False"
+                  GridLinesVisibility="Horizontal"
+                  HeadersVisibility="Column">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã đơn" Binding="{Binding OrderID}" Width="100"/>
+                <DataGridTextColumn Header="Ngày đặt" Binding="{Binding OrderDate, StringFormat=dd/MM/yyyy}" Width="150"/>
+                <DataGridTextColumn Header="Nhân viên" Binding="{Binding EmployeeID}" Width="100"/>
+                <DataGridTemplateColumn Header="Xem chi tiết" Width="120">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Xem chi tiết"
+                                    Click="ViewOrderDetail_Click"
+                                    Tag="{Binding OrderID}"
+                                    Margin="2"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Window>

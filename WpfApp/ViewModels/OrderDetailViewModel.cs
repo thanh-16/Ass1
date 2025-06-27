@@ -24,7 +24,7 @@ namespace WpfApp.ViewModels
         public void Update(OrderDetail detail)
         {
             _service.Update(detail);
-            // Optionally refresh the collection if needed
+
         }
 
         public void Delete(OrderDetail detail)

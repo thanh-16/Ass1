@@ -29,3 +29,9 @@ D:\Semester_5\prn212\ThayKhanh\AssignMent1\WpfApp\obj\Debug\net8.0-windows\refin
 D:\Semester_5\prn212\ThayKhanh\AssignMent1\WpfApp\obj\Debug\net8.0-windows\WpfApp.pdb
 D:\Semester_5\prn212\ThayKhanh\AssignMent1\WpfApp\obj\Debug\net8.0-windows\WpfApp.genruntimeconfig.cache
 D:\Semester_5\prn212\ThayKhanh\AssignMent1\WpfApp\obj\Debug\net8.0-windows\ref\WpfApp.dll
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\WpfApp\obj\Debug\net8.0-windows\CustomerWindow.baml
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\WpfApp\obj\Debug\net8.0-windows\CustomerWindow.g.cs
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\WpfApp\obj\Debug\net8.0-windows\AddEditCustomerWindow.baml
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\WpfApp\obj\Debug\net8.0-windows\AddEditCustomerWindow.g.cs
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\WpfApp\obj\Debug\net8.0-windows\OrderDetailPopupWindow.baml
+D:\Semester_5\prn212\ThayKhanh\AssignMent1\WpfApp\obj\Debug\net8.0-windows\OrderDetailPopupWindow.g.cs
